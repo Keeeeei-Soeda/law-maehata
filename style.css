@@ -141,3 +141,11 @@ p { margin: .6rem 0 1rem; }
   100%     { opacity: 0; }       /* 9–12s で 1→0 にフェードアウト */
 }
 
+/* スライド画像1〜3をループで切り替える */
+.slide1 { animation-name: slide1; }
+.slide2 { animation-name: slide2; }
+.slide3 { animation-name: slide3; }
+
+
+
+
