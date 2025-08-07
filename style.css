@@ -839,32 +839,9 @@ footer address, #footer address {
 }
 .carousel-dot.active { background: #3877c5; }
 
-.p-home-service {
-  padding: 44px 0 24px 0;
-  background: #f7fafc;
-}
-.p-section__header {
-  margin-bottom: 22px;
-  text-align: center;
-}
-.p-section__title {
-  font-size: 1.55rem;
-  color: #16416a;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-.p-section__subtitle {
-  color: #3877c5;
-  font-size: 1.08rem;
-  letter-spacing: 0.08em;
-  margin-bottom: 0;
-}
-.p-home-service__body {
-  width: 100%;
-}
 .p-home-service__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* PC: 2列 */
+  grid-template-columns: repeat(5, 1fr);  /* PC: 5列 */
   gap: 28px 12px;
   justify-content: center;
 }
@@ -912,10 +889,10 @@ footer address, #footer address {
   height: 100%;
 }
 
-/* スマホ・タブレットで5列に切替 */
+/* 900px以下で2列×5行 */
 @media (max-width: 900px) {
   .p-home-service__list {
-    grid-template-columns: repeat(5, 1fr); /* 5列 */
+    grid-template-columns: repeat(2, 1fr); /* 2列 */
     gap: 18px 6px;
   }
   .p-home-service__item {
@@ -924,6 +901,8 @@ footer address, #footer address {
   .p-section__title { font-size: 1.2rem;}
   .p-section__subtitle { font-size: 1rem;}
 }
+
+/* 600px以下でさらに小さく */
 @media (max-width: 600px) {
   .p-home-service { padding: 18px 0 6px 0;}
   .p-home-service__item {
@@ -933,4 +912,3 @@ footer address, #footer address {
   .p-home-service__item-title { font-size: 0.92rem; }
   .p-home-service__item img { width: 38px; height: 38px; padding: 5px;}
 }
-
