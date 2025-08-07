@@ -909,86 +909,82 @@ footer address, #footer address {
   .p-home-service__item img { width: 38px; height: 38px; padding: 5px;}
 }
 
-
-.p-home-flow {
-  background: #f4f8fc;
-  padding: 44px 0 36px 0;
-}
-.p-home-flow .p-section__header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.p-home-flow__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
-.p-home-flow__left-column,
-.p-home-flow__right-column {
-  flex: 1;
-  min-width: 10px;
-  /* 空白用。デザインで必要なら削除可 */
-}
-.p-home-flow__main-column {
-  flex: 6;
-  min-width: 0;
+.p-home-flow__bg {
+  background: linear-gradient(135deg, #eaf2f7 60%, #d0e4f3 100%);
+  border-radius: 22px;
+  padding: 36px 20px 28px 20px;
+  margin: 0 auto 44px auto;
+  max-width: 900px;
+  box-shadow: 0 4px 20px rgba(22,65,106,0.09);
 }
 .p-home-flow__list {
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 20px;
-  padding: 0;
-  margin: 0 auto 24px auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
   list-style: none;
-  flex-wrap: wrap;
+  margin: 0 0 18px 0;
+  padding: 0;
+  width: 100%;
 }
 .p-home-flow__item {
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 10px rgba(22,65,106,0.10);
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(22,65,106,0.10);
+  padding: 22px 12px 18px 12px;
+  text-align: center;
+  flex: 1 1 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 18px 16px;
-  min-width: 130px;
-  max-width: 170px;
-  flex: 1 1 120px;
-  transition: box-shadow 0.2s, transform 0.2s;
+  min-width: 110px;
+  max-width: 150px;
   position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.p-home-flow__item:hover {
+  box-shadow: 0 6px 22px rgba(22,65,106,0.16);
+  transform: translateY(-5px) scale(1.04);
 }
 .p-home-flow__item-num {
-  font-weight: bold;
-  color: #3877c5;
   font-size: 1.1em;
-  background: #f0f7ff;
+  color: #fff;
+  background: #3877c5;
   border-radius: 50%;
-  width: 2em;
-  height: 2em;
+  width: 2.2em;
+  height: 2.2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
+  font-weight: bold;
+  margin: 0 auto 11px auto;
+  box-shadow: 0 2px 7px #b8d6f2a2;
+  letter-spacing: 0.06em;
+}
+.p-home-flow__item-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.p-home-flow__item-img img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #eaf2f7;
+  box-shadow: 0 1px 6px rgba(50,130,200,0.09);
 }
 .p-home-flow__item-title {
-  font-size: 1.04em;
-  color: #16416a;
-  text-align: center;
-  margin: 0 0 9px 0;
+  font-size: 1.01em;
   font-weight: bold;
-}
-.p-home-flow__item img {
-  width: 54px;
-  height: 54px;
-  object-fit: contain;
-  background: #eaf2f7;
-  border-radius: 8px;
-  margin-bottom: 0;
-  margin-top: 0;
-  display: block;
+  color: #16416a;
+  margin-top: 6px;
+  letter-spacing: 0.02em;
 }
 .p-home-flow__btn {
   text-align: right;
+  margin-top: 18px;
 }
 .c-text-link.-white {
   display: inline-flex;
@@ -1012,19 +1008,28 @@ footer address, #footer address {
 }
 
 @media (max-width: 900px) {
-  .p-home-flow__wrapper { flex-direction: column; }
-  .p-home-flow__list { flex-wrap: wrap; gap: 14px; }
-  .p-home-flow__item {
-    min-width: 44vw;
-    max-width: 96vw;
-    padding: 14px 8px 10px;
+  .p-home-flow__bg {
+    padding: 24px 4px 14px 4px;
   }
-  .p-home-flow__btn { text-align: center; }
+  .p-home-flow__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 13px;
+  }
+  .p-home-flow__item {
+    margin: 0 auto;
+    min-width: 80vw;
+    max-width: 96vw;
+    flex: unset;
+  }
+  .p-home-flow__btn {
+    text-align: center;
+    margin-top: 12px;
+  }
 }
 @media (max-width: 600px) {
-  .p-home-flow { padding: 18px 0 12px 0; }
-  .p-home-flow__item { min-width: 94vw; max-width: 98vw; }
-  .p-home-flow__item-title { font-size: 0.97em; }
-  .p-home-flow__item img { width: 38px; height: 38px; }
+  .p-home-flow__bg { padding: 12px 0 8px 0; }
+  .p-home-flow__item { padding: 12px 5px 8px 5px; }
+  .p-home-flow__item-title { font-size: 0.94em; }
+  .p-home-flow__item-img img { width: 34px; height: 34px; }
 }
-
