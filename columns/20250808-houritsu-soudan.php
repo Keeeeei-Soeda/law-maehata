@@ -1,4 +1,4 @@
-<!-- columns/20250808-houritsu-soudan.php -->
+<!-- columns/20250731-houritsu-soudan.php -->
 <?php
 // 必須メタデータ
 $title = "法律相談する方法【法律相談のことなら前畑法律事務所】";
