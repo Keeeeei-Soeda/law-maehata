@@ -135,17 +135,38 @@
   function nextSlide() {
     goToSlide((currentIndex + 1) % slides.length);
   }
-  function goToSlide(idx) {
-    track.style.transform = `translateX(-${idx * 100}%)`;
+ function goToSlide(idx, manual = false) {
+    // ループする場合、3枚目→1枚目へは一瞬でジャンプ
+    if (currentIndex === slides.length - 1 && idx === 0) {
+      // アニメーションOFFで一瞬戻す
+      track.classList.add('no-animation');
+      track.style.transform = `translateX(0)`;
+      setTimeout(() => {
+        track.classList.remove('no-animation');
+        updateDot(0);
+        currentIndex = 0;
+      }, 20);
+    } else {
+      track.classList.remove('no-animation');
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      updateDot(idx);
+      currentIndex = idx;
+    }
+    // クリック時にも自動再開
+    if (manual || isManual) {
+      clearInterval(interval);
+      interval = setInterval(nextSlide, 3200);
+      isManual = false;
+    }
+  }
+
+  function updateDot(idx) {
     dotsNav.querySelectorAll('.carousel-dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === idx);
     });
-    currentIndex = idx;
-    // クリックしたら自動再開
-    clearInterval(interval);
-    interval = setInterval(nextSlide, 3200);
   }
 });
+  
 </script>
 </body>
 </html>
