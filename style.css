@@ -1117,3 +1117,106 @@ footer address, #footer address {
     width: 100%;
   }
 }
+
+.p-home-featured-service {
+  margin: 58px auto 48px auto;
+  padding: 0;
+  background: none;
+}
+
+.p-featured-service__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 54px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 38px 34px;
+  border-radius: 22px;
+  background: linear-gradient(125deg,#eaf2f7 60%, #dde9f4 100%);
+  box-shadow: 0 5px 26px rgba(22,65,106,0.08);
+}
+.p-featured-service__image {
+  flex: 0 0 41%;
+  text-align: center;
+}
+.p-featured-service__image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 2px 14px rgba(22,65,106,0.09);
+  background: #f7fafd;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+.p-featured-service__desc {
+  flex: 1 1 59%;
+  min-width: 240px;
+}
+.p-featured-service__title {
+  font-size: 1.35em;
+  color: #16416a;
+  margin: 0 0 18px 0;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+.p-featured-service__lead {
+  font-size: 1.07em;
+  color: #1b3e69;
+  margin-bottom: 12px;
+}
+.p-featured-service__list {
+  font-size: 1em;
+  margin: 0 0 16px 1em;
+  padding: 0;
+  color: #345;
+  line-height: 1.6;
+}
+.p-featured-service__list li {
+  margin-bottom: 3px;
+  list-style: disc;
+}
+.p-featured-service__more {
+  margin-top: 10px;
+}
+.p-featured-service__btn {
+  display: inline-block;
+  background: #3877c5;
+  color: #fff;
+  border-radius: 20px;
+  padding: 9px 28px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.02em;
+  box-shadow: 0 2px 8px #bdd5ef34;
+  transition: background 0.18s;
+}
+.p-featured-service__btn:hover {
+  background: #16416a;
+}
+
+@media (max-width: 900px) {
+  .p-featured-service__container {
+    flex-direction: column;
+    gap: 26px;
+    padding: 24px 6vw;
+  }
+  .p-featured-service__image img {
+    max-width: 94vw;
+    border-radius: 12px;
+  }
+  .p-featured-service__desc { width: 100%; }
+}
+@media (max-width: 600px) {
+  .p-featured-service__container {
+    padding: 12px 2vw;
+    border-radius: 12px;
+  }
+  .p-featured-service__image img {
+    max-width: 96vw;
+  }
+  .p-featured-service__title { font-size: 1.12em; }
+}
+
