@@ -226,35 +226,35 @@
   </div>
 </section>
 
-        <section class="p-home-column-news">
-  <div class="p-section__header">
-    <h2 class="p-section__title -center">コラム・お知らせ</h2>
-    <p class="p-section__subtitle -center">Column / News</p>
-  </div>
-  <div class="p-home-column-list">
-    <ul>
-      <li>
-        <span class="p-home-column-date">2025.07.31</span>
-        <span class="p-home-column-category">法律</span>
-        <a href="#">「うそ発見器」の証拠能力 <span class="p-home-column-author">弁護士 浅野喜彦</span></a>
-      </li>
-      <li>
-        <span class="p-home-column-date">2025.07.15</span>
-        <span class="p-home-column-category">社会</span>
-        <a href="#">生活保護基準引下げを違法とする画期的な最高裁判決 <span class="p-home-column-author">弁護士 森亮介</span></a>
-      </li>
-      <li>
-        <span class="p-home-column-date">2025.07.02</span>
-        <span class="p-home-column-category">その他</span>
-        <a href="#">東京出張　～とある一日～ <span class="p-home-column-author">弁護士 岡正人</span></a>
-      </li>
-      <li>
-        <span class="p-home-column-date">2025.06.04</span>
-        <span class="p-home-column-category">法律</span>
-        <a href="#">成年後見制度による支援 <span class="p-home-column-author">弁護士 森亮介</span></a>
-      </li>
-    </ul>
-    <p class="p-home-column-more"><a href="news.html">一覧を見る</a></p>
+        <section class="p-home-column p-section">
+  <div class="p-home-column-bg">
+    <h2 class="p-home-column-title">コラム・お知らせ</h2>
+    <div class="p-home-column-list">
+      <?php
+      $dir = __DIR__ . '/columns/';
+      $files = glob($dir . '*.php');
+      usort($files, function($a, $b){ return filemtime($b) - filemtime($a); });
+      $latest = array_slice($files, 0, 4);
+
+      foreach($latest as $file) {
+          // 各記事ファイル内で $title, $thumb, $category, $date などをセット
+          include($file);
+          echo '<div class="p-home-column-list__item">';
+          echo '<a href="columns/'.basename($file).'">';
+          echo '<div class="p-home-column-thumb"><img src="'.htmlspecialchars($thumb).'" alt="'.htmlspecialchars($title).'"></div>';
+          echo '<div class="p-home-column-meta">';
+          echo '<span class="p-home-column-category">'.htmlspecialchars($category).'</span>｜';
+          echo '<span class="p-home-column-date">'.htmlspecialchars($date).'</span>';
+          echo '</div>';
+          echo '<h3 class="p-home-column-article-title">'.htmlspecialchars($title).'</h3>';
+          echo '</a>';
+          echo '</div>';
+      }
+      ?>
+    </div>
+    <div class="p-home-column-archive-link">
+      <a href="columns/">コラム一覧を見る</a>
+    </div>
   </div>
 </section>
 
