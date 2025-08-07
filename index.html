@@ -23,10 +23,15 @@
         </div>
       </div>
       <!-- スライドショー（3枚） -->
-      <div class="topimgs" id="slideshow">
-        <img src="image_folder/image06.png" alt="slide1" class="topimg slideactive">
-        <img src="image_folder/image07.png" alt="slide2" class="topimg">
-        <img src="image_folder/image05.png" alt="slide3" class="topimg">
+      <div class="carousel">
+  <div class="carousel-track">
+    <img src="image_folder/image06.png" alt="slide1" class="carousel-slide">
+    <img src="image_folder/image07.png" alt="slide2" class="carousel-slide">
+    <img src="image_folder/image08.png" alt="slide3" class="carousel-slide">
+  </div>
+  <!-- ドットナビ（お好みで） -->
+  <div class="carousel-dots"></div>
+</div>
         <p class="catch">最も身近で頼れる弁護士</p>
       </div>
     </div>
@@ -111,15 +116,36 @@
 </div>
 <!-- スライドショーJS -->
 <script>
-  window.addEventListener('DOMContentLoaded', function() {
-    const imgs = document.querySelectorAll('.topimgs .topimg');
-    let now = 0;
-    setInterval(()=>{
-      imgs[now].classList.remove('slideactive');
-      now = (now+1)%imgs.length;
-      imgs[now].classList.add('slideactive');
-    }, 3000);
+ document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const dotsNav = document.querySelector('.carousel-dots');
+
+  // ドット作成
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(idx));
+    dotsNav.appendChild(dot);
   });
+
+  let currentIndex = 0;
+  let interval = setInterval(nextSlide, 3200);
+
+  function nextSlide() {
+    goToSlide((currentIndex + 1) % slides.length);
+  }
+  function goToSlide(idx) {
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    dotsNav.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === idx);
+    });
+    currentIndex = idx;
+    // クリックしたら自動再開
+    clearInterval(interval);
+    interval = setInterval(nextSlide, 3200);
+  }
+});
 </script>
 </body>
 </html>
