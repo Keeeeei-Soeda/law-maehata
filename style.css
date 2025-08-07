@@ -838,3 +838,99 @@ footer address, #footer address {
   cursor: pointer;
 }
 .carousel-dot.active { background: #3877c5; }
+
+.p-home-service {
+  padding: 44px 0 24px 0;
+  background: #f7fafc;
+}
+.p-section__header {
+  margin-bottom: 22px;
+  text-align: center;
+}
+.p-section__title {
+  font-size: 1.55rem;
+  color: #16416a;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+.p-section__subtitle {
+  color: #3877c5;
+  font-size: 1.08rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0;
+}
+.p-home-service__body {
+  width: 100%;
+}
+.p-home-service__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* PC: 2列 */
+  gap: 28px 12px;
+  justify-content: center;
+}
+.p-home-service__item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 3px 14px rgba(22,65,106,0.09);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  height: 180px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin: 0 auto;
+}
+.p-home-service__item:hover {
+  box-shadow: 0 6px 22px rgba(22,65,106,0.18);
+  transform: translateY(-4px) scale(1.04);
+}
+.p-home-service__item-title {
+  font-size: 1.08rem;
+  font-weight: bold;
+  color: #16416a;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.p-home-service__item img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: #eaf2f7;
+  padding: 10px;
+}
+.p-home-service__item a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* スマホ・タブレットで5列に切替 */
+@media (max-width: 900px) {
+  .p-home-service__list {
+    grid-template-columns: repeat(5, 1fr); /* 5列 */
+    gap: 18px 6px;
+  }
+  .p-home-service__item {
+    height: 120px;
+  }
+  .p-section__title { font-size: 1.2rem;}
+  .p-section__subtitle { font-size: 1rem;}
+}
+@media (max-width: 600px) {
+  .p-home-service { padding: 18px 0 6px 0;}
+  .p-home-service__item {
+    height: 95px;
+    border-radius: 12px;
+  }
+  .p-home-service__item-title { font-size: 0.92rem; }
+  .p-home-service__item img { width: 38px; height: 38px; padding: 5px;}
+}
+
