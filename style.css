@@ -919,14 +919,16 @@ footer address, #footer address {
 }
 .p-home-flow__list {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
+  justify-content: center;       /* ←中央揃え */
+  align-items: stretch;
+  gap: 18px;
   list-style: none;
-  margin: 0 0 18px 0;
+  margin: 0;
   padding: 0;
-  width: 100%;
+  width: auto;                   /* ←ここ！width:100%はNG！ */
+  flex-wrap: nowrap;             /* ←横並びを強制 */
 }
+
 .p-home-flow__item {
   background: #fff;
   border-radius: 12px;
@@ -1033,3 +1035,17 @@ footer address, #footer address {
   .p-home-flow__item-title { font-size: 0.94em; }
   .p-home-flow__item-img img { width: 34px; height: 34px; }
 }
+@media (max-width: 900px) {
+  .p-home-flow__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 13px;
+  }
+  .p-home-flow__item {
+    margin: 0 auto;
+    min-width: 80vw;
+    max-width: 96vw;
+    flex: unset;
+  }
+}
+
