@@ -754,3 +754,47 @@ opacity:1;
 }
 }
 
+/* === スライドショー用 === */
+.topimg { opacity: 0; transition: opacity 1s;}
+.slideactive { opacity: 1; z-index:1; }
+
+@media (max-width: 600px) {
+  .topimgs { height: 160px !important; }
+  .topimg { height: 160px !important; }
+}
+
+/* === フッターリンク見やすく === */
+.footer-nav a {
+  color: #16416a;
+  margin: 0 8px;
+  text-decoration: underline;
+  font-size: 1em;
+}
+.footer-nav a:hover {
+  color: #3877c5;
+}
+footer address, #footer address {
+  font-style: normal;
+  color: #333;
+  margin-top: 12px;
+}
+
+/* === h3オーバーライド === */
+.h3 {
+  margin: 0 0 0 1.8em;
+  font-size: 95%;
+}
+
+/* === セクション見やすく（任意） === */
+#mainbox section {
+  margin-bottom: 36px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e7ef;
+}
+
+/* === スマホ向け余白調整 === */
+@media (max-width: 800px) {
+  #mainbox { padding: 2% 1% !important;}
+  #footer { width: 100% !important;}
+}
+
