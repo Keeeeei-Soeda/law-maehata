@@ -28,6 +28,8 @@
     <img src="image_folder/image06.png" alt="slide1" class="carousel-slide">
     <img src="image_folder/image07.png" alt="slide2" class="carousel-slide">
     <img src="image_folder/image05.png" alt="slide3" class="carousel-slide">
+ <!-- クローン1枚目を一番後ろに追加（JSで自動追加でもOK） -->
+    <img src="image_folder/image06.png" alt="slide1-clone" class="carousel-slide clone">
   </div>
   <!-- ドットナビ（お好みで） -->
   <div class="carousel-dots"></div>
@@ -116,56 +118,82 @@
 </div>
 <!-- スライドショーJS -->
 <script>
- document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
   const track = document.querySelector('.carousel-track');
-  const slides = Array.from(track.children);
+  let slides = Array.from(track.children);
   const dotsNav = document.querySelector('.carousel-dots');
+  const totalSlides = slides.length - 1; // クローン除く
+  let currentIndex = 0;
+  let interval;
 
-  // ドット作成
-  slides.forEach((_, idx) => {
+  // ドット生成
+  for(let i=0; i<totalSlides; i++) {
     const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goToSlide(idx));
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(i, true));
     dotsNav.appendChild(dot);
+  }
+  const dots = Array.from(dotsNav.children);
+
+  // 初期位置
+  track.style.transform = `translateX(0)`;
+
+  // 自動スライド
+  function startAuto() {
+    interval = setInterval(() => goToSlide(currentIndex+1), 3200);
+  }
+  function stopAuto() {
+    clearInterval(interval);
+  }
+
+  function goToSlide(idx, isManual = false) {
+    // 右端クローン（ダミー）へ移動したら、すぐ1枚目にジャンプ
+    if (idx === slides.length) {
+      track.style.transition = 'transform 0.8s cubic-bezier(.77,0,.18,1)';
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      setTimeout(() => {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(0)`;
+        currentIndex = 0;
+        updateDot();
+      }, 800); // アニメーションの長さと同じ
+    } else {
+      track.style.transition = 'transform 0.8s cubic-bezier(.77,0,.18,1)';
+      track.style.transform = `translateX(-${idx * 100}%)`;
+      currentIndex = idx;
+      updateDot();
+    }
+    if (isManual) {
+      stopAuto();
+      startAuto();
+    }
+    // 0〜(totalSlides-1)でループ
+    if (idx > totalSlides) currentIndex = 0;
+  }
+
+  function updateDot() {
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === (currentIndex % totalSlides)));
+  }
+
+  // 初期
+  startAuto();
+
+  // 最後までいったら1枚目にジャンプ
+  track.addEventListener('transitionend', () => {
+    if (currentIndex === slides.length - 1) {
+      track.style.transition = 'none';
+      track.style.transform = `translateX(0)`;
+      currentIndex = 0;
+      updateDot();
+    }
   });
 
-  let currentIndex = 0;
-  let interval = setInterval(nextSlide, 3200);
-
-  function nextSlide() {
-    goToSlide((currentIndex + 1) % slides.length);
-  }
- function goToSlide(idx, manual = false) {
-    // ループする場合、3枚目→1枚目へは一瞬でジャンプ
-    if (currentIndex === slides.length - 1 && idx === 0) {
-      // アニメーションOFFで一瞬戻す
-      track.classList.add('no-animation');
-      track.style.transform = `translateX(0)`;
-      setTimeout(() => {
-        track.classList.remove('no-animation');
-        updateDot(0);
-        currentIndex = 0;
-      }, 20);
-    } else {
-      track.classList.remove('no-animation');
-      track.style.transform = `translateX(-${idx * 100}%)`;
-      updateDot(idx);
-      currentIndex = idx;
-    }
-    // クリック時にも自動再開
-    if (manual || isManual) {
-      clearInterval(interval);
-      interval = setInterval(nextSlide, 3200);
-      isManual = false;
-    }
-  }
-
-  function updateDot(idx) {
-    dotsNav.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === idx);
-    });
-  }
+  // ドットクリックで手動移動
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => goToSlide(idx, true));
+  });
 });
+
   
 </script>
 </body>
