@@ -1314,3 +1314,63 @@ footer address, #footer address {
   }
   .p-home-column-list__item { width: 92%; }
 }
+
+
+/* =========================================
+   フォントサイズ統一（PC基準）
+   ※このブロックはCSSの一番最後に置く
+   ========================================= */
+
+/* 本文（説明文・一般パラグラフ） */
+body, p, li, .titledescription, .work, .news, .shoukai, .cashlessnotice {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* タイトル（ヒーロー系・見出し相当） */
+h1, .catch, .catch2, .p-featured-service__title {
+  font-size: 36px;
+  line-height: 1.25;
+}
+
+/* 見出し */
+h2 { font-size: 18px; line-height: 1.4; }
+h3, .h3, .h3naka { font-size: 16px; line-height: 1.4; }
+
+/* フィーチャーセクション内の本文（関連するものをすべて本文サイズに） */
+.p-featured-service__lead,
+.p-featured-service__desc p,
+.p-featured-service__list,
+.p-featured-service__list li {
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   スマホ用オーバーライド
+   ========================================= */
+@media (max-width: 600px) {
+  /* 本文 */
+  body, p, li, .titledescription, .work, .news, .shoukai, .cashlessnotice {
+    font-size: 13px;
+  }
+
+  /* タイトル（ヒーロー系・見出し相当） */
+  h1, .catch, .catch2, .p-featured-service__title {
+    font-size: 24px;
+    line-height: 1.28;
+  }
+
+  /* 見出し */
+  h2 { font-size: 15px; }
+  h3, .h3, .h3naka { font-size: 14px; }
+
+  /* フィーチャーセクションの本文 */
+  .p-featured-service__lead,
+  .p-featured-service__desc p,
+  .p-featured-service__list,
+  .p-featured-service__list li {
+    font-size: 13px;
+  }
+}
+
