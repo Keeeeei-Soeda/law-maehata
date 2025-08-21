@@ -226,38 +226,7 @@
   </div>
 </section>
 
-        <section class="p-home-column p-section">
-  <div class="p-home-column-bg">
-    <h2 class="p-home-column-title">コラム・お知らせ</h2>
-    <div class="p-home-column-list">
-      <?php
-      $dir = __DIR__ . '/columns/';
-      $files = glob($dir . '*.php');
-      usort($files, function($a, $b){ return filemtime($b) - filemtime($a); });
-      $latest = array_slice($files, 0, 4);
-
-      foreach($latest as $file) {
-          // 各記事ファイル内で $title, $thumb, $category, $date などをセット
-          include($file);
-          echo '<div class="p-home-column-list__item">';
-          echo '<a href="columns/'.basename($file).'">';
-          echo '<div class="p-home-column-thumb"><img src="'.htmlspecialchars($thumb).'" alt="'.htmlspecialchars($title).'"></div>';
-          echo '<div class="p-home-column-meta">';
-          echo '<span class="p-home-column-category">'.htmlspecialchars($category).'</span>｜';
-          echo '<span class="p-home-column-date">'.htmlspecialchars($date).'</span>';
-          echo '</div>';
-          echo '<h3 class="p-home-column-article-title">'.htmlspecialchars($title).'</h3>';
-          echo '</a>';
-          echo '</div>';
-      }
-      ?>
-    </div>
-    <div class="p-home-column-archive-link">
-      <a href="columns/">コラム一覧を見る</a>
-    </div>
-  </div>
-</section>
-
+      
 
             
 <section class="p-home-fee">
