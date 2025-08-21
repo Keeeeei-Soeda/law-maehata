@@ -1317,60 +1317,74 @@ footer address, #footer address {
 
 
 /* =========================================
-   フォントサイズ統一（PC基準）
-   ※このブロックはCSSの一番最後に置く
+   Site-wide Typography Override（最後に配置）
+   PC: Title 36 / Body 15 / H2 18 / H3 16
+   SP: Title 24 / Body 13 / H2 15 / H3 14
    ========================================= */
 
-/* 本文（説明文・一般パラグラフ） */
-body, p, li, .titledescription, .work, .news, .shoukai, .cashlessnotice {
+/* --- 基本本文（段落・リスト・汎用テキスト） --- */
+body, p, li,
+.titledescription, .work, .news, .shoukai, .cashlessnotice,
+.p-section__subtitle,
+.p-featured-service__lead,
+.p-featured-service__desc p,
+.p-featured-service__list, .p-featured-service__list li,
+.p-home-flow__item-title,
+.p-home-faq-list dd {
   font-size: 15px;
   line-height: 1.6;
 }
 
-/* タイトル（ヒーロー系・見出し相当） */
-h1, .catch, .catch2, .p-featured-service__title {
+/* --- タイトル（ヒーロー/メイントップ） --- */
+h1, .catch, .catch2,
+.p-featured-service__title {
   font-size: 36px;
   line-height: 1.25;
 }
 
-/* 見出し */
-h2 { font-size: 18px; line-height: 1.4; }
-h3, .h3, .h3naka { font-size: 16px; line-height: 1.4; }
-
-/* フィーチャーセクション内の本文（関連するものをすべて本文サイズに） */
-.p-featured-service__lead,
-.p-featured-service__desc p,
-.p-featured-service__list,
-.p-featured-service__list li {
-  font-size: 15px;
-  line-height: 1.7;
+/* --- H2（全ページのセクション見出し） --- */
+h2, .p-section__title {
+  font-size: 18px;
+  line-height: 1.4;
 }
 
-/* =========================================
-   スマホ用オーバーライド
-   ========================================= */
+/* --- H3（小見出し／カード見出し等） --- */
+h3, .h3, .h3naka,
+.p-home-service__item-title {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* --- スマホ（600px以下） --- */
 @media (max-width: 600px) {
   /* 本文 */
-  body, p, li, .titledescription, .work, .news, .shoukai, .cashlessnotice {
+  body, p, li,
+  .titledescription, .work, .news, .shoukai, .cashlessnotice,
+  .p-section__subtitle,
+  .p-featured-service__lead,
+  .p-featured-service__desc p,
+  .p-featured-service__list, .p-featured-service__list li,
+  .p-home-flow__item-title,
+  .p-home-faq-list dd {
     font-size: 13px;
   }
 
-  /* タイトル（ヒーロー系・見出し相当） */
-  h1, .catch, .catch2, .p-featured-service__title {
+  /* タイトル */
+  h1, .catch, .catch2,
+  .p-featured-service__title {
     font-size: 24px;
     line-height: 1.28;
   }
 
-  /* 見出し */
-  h2 { font-size: 15px; }
-  h3, .h3, .h3naka { font-size: 14px; }
+  /* H2 */
+  h2, .p-section__title {
+    font-size: 15px;
+  }
 
-  /* フィーチャーセクションの本文 */
-  .p-featured-service__lead,
-  .p-featured-service__desc p,
-  .p-featured-service__list,
-  .p-featured-service__list li {
-    font-size: 13px;
+  /* H3 */
+  h3, .h3, .h3naka,
+  .p-home-service__item-title {
+    font-size: 14px;
   }
 }
 
