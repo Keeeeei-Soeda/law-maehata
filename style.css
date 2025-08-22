@@ -835,8 +835,8 @@ footer address, #footer address {
 .p-home-service__list {
   display: grid;
   /* PCは5列。最小幅を160pxにして潰れすぎを防止 */
-  grid-template-columns: repeat(5, minmax(160px, 1fr));
-  gap: 20px 12px;
+  grid-template-columns: repeat(5, minmax(180px, 1fr));
+  gap: 24px;
   justify-content: center;
 }
 
@@ -848,11 +848,13 @@ footer address, #footer address {
   align-items: center;
   justify-content: center;
   /* 中身が収まる比率＋最低高さでオーバーフロー防止 */
-  aspect-ratio: 1.4 / 1;   /* 2.2/1 → 1.4/1 に変更（高さを確保） */
-  min-height: 140px;
-  padding: 12px 10px;
+  aspect-ratio: 1.2 / 1;   /* 2.2/1 → 1.4/1 に変更（高さを確保） */
+  min-height: 150px;
+  padding: 14px 12px;
   transition: box-shadow 0.2s, transform 0.2s;
   margin: 0 auto;
+  position: relative;      /* 後述の z-index 用 */
+  isolation: isolate;      /* 近隣と積層文脈を分離 */
 }
 
 .p-home-service__item:hover {
