@@ -1412,11 +1412,12 @@ h2 {                           /* 既存の 1.5rem を統一 */
 }
 
 /* セクションタイトル（Our Service / Flow / Fee / FAQ など） */
-.p-section__title {
-  font-size: 24px;
+.p-section__title -center {
+  font-size: 26px;
   line-height: 1.4;
   font-weight: normal;         /* 既存の見た目に合わせる場合は bold でも可 */
 }
+
 
 /* H3・カード見出し（自己破産 等） */
 h3, .h3, .h3naka,
