@@ -1328,80 +1328,133 @@ footer address, #footer address {
 }
 
 
-/* =========================================
-   Site-wide Typography Override (strong)
-   PC: Title 36 / Body 15 / H2 18 / H3 16
-   SP: Title 24 / Body 13 / H2 15 / H3 14
-   ========================================= */
+/* =========================================================
+   1) 外枠の除去＋レイアウト拡大（コンテナ）
+   ========================================================= */
+#verticalwrapper1 {
+  width: 100%;
+  max-width: none;
+  text-align: initial;         /* 全文ジャスティファイを解除 */
+}
+#verticalwrapper2 {
+  border-left: none;           /* 外枠線を撤去 */
+  border-right: none;          /* 外枠線を撤去 */
+  max-width: 1160px;           /* 1000 → 1160 に拡大 */
+  padding: 0 24px;             /* 余白を内側で確保 */
+  box-sizing: border-box;
+}
 
-/* 本文（説明文・一般テキスト） */
+/* パンくずやメインの左右余白も整える */
+#mainbox {
+  width: 100%;
+  padding: 16px 0 24px 0;
+}
+
+/* ヘッダーのカルーセルも幅を拡大して中央寄せ */
+.carousel {
+  max-width: 1700px;           /* 900 → 1160 */
+  height: 360px;               /* 見映えを少しだけ拡大 */
+}
+.carousel-track,
+.carousel-slide { height: 360px; }
+@media (max-width: 600px) {
+  .carousel, .carousel-track, .carousel-slide { height: 160px; }
+}
+
+/* 「ご相談の流れ」ボックス幅拡大 */
+.p-home-flow__bg {
+  max-width: 1700px;           /* 900 → 1160 */
+  padding: 36px 24px 28px 24px;
+}
+
+/* 弁護士紹介の横幅拡大 */
+.p-bengoshi-intro__wrapper {
+  max-width: 1700px;           /* 900 → 1160 */
+}
+
+/* フィーチャー（MBA×弁護士）横幅拡大 */
+.p-featured-service__container {
+  max-width: 1700px;           /* 960 → 1160 */
+  padding: 38px 28px;
+}
+
+/* =========================================================
+   2) タイポグラフィ（要素ごと）PC基準
+   PC: Title 36 / Body 15 / H2 18 / H3 16
+   ========================================================= */
+
+/* 本文（段落・リスト・汎用テキスト） */
 body, p, li,
 .titledescription, .work, .news, .shoukai, .cashlessnotice,
 .p-section__subtitle,
 .p-featured-service__lead,
 .p-featured-service__desc p,
-.p-featured-service__list, .p-featured-service__list li,
+.p-featured-service__list,
+.p-featured-service__list li,
 .p-home-flow__item-title,
 .p-home-faq-list dd {
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* タイトル（ヒーロー/メイントップ相当） */
+/* タイトル（ヒーロー系・主要タイトル） */
 h1, .catch, .catch2,
 .p-featured-service__title {
   font-size: 36px;
   line-height: 1.25;
 }
 
-/* H2（.p-featured-service__title を除外） */
-h2:not(.p-featured-service__title),
-.p-section__title,
-.p-section__header .p-section__title {
-  font-size: 18px !important;
+/* 見出し（全ページのH2） */
+h2 {                           /* 既存の 1.5rem を統一 */
+  font-size: 18px;
   line-height: 1.4;
+  font-weight: normal;
 }
 
-/* H3・カード見出し */
+/* セクションタイトル（Our Service / Flow / Fee / FAQ など） */
+.p-section__title {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: normal;         /* 既存の見た目に合わせる場合は bold でも可 */
+}
+
+/* H3・カード見出し（自己破産 等） */
 h3, .h3, .h3naka,
 .p-home-service__item-title {
-  font-size: 16px !important;
+  font-size: 16px;
   line-height: 1.4;
 }
 
-/* --- スマホ（600px以下） --- */
+/* =========================================================
+   3) スマホ（600px以下）
+   SP: Title 24 / Body 13 / H2 15 / H3 14
+   ========================================================= */
 @media (max-width: 600px) {
-  /* 本文 */
   body, p, li,
   .titledescription, .work, .news, .shoukai, .cashlessnotice,
   .p-section__subtitle,
   .p-featured-service__lead,
   .p-featured-service__desc p,
-  .p-featured-service__list, .p-featured-service__list li,
+  .p-featured-service__list,
+  .p-featured-service__list li,
   .p-home-flow__item-title,
   .p-home-faq-list dd {
     font-size: 13px;
+    line-height: 1.7;
   }
 
-  /* タイトル */
   h1, .catch, .catch2,
   .p-featured-service__title {
     font-size: 24px;
     line-height: 1.28;
   }
 
-  /* H2（タイトル除外） */
-  h2:not(.p-featured-service__title),
-  .p-section__title,
-  .p-section__header .p-section__title {
-    font-size: 15px !important;
+  h2, .p-section__title {
+    font-size: 15px;
   }
 
-  /* H3 */
   h3, .h3, .h3naka,
   .p-home-service__item-title {
-    font-size: 14px !important;
+    font-size: 14px;
   }
 }
-
-
