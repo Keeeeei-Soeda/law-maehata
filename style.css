@@ -834,7 +834,7 @@ footer address, #footer address {
 
 .p-home-service__list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);   /* ★PC：2列（5行） */
+  grid-template-columns: repeat(5, 1fr);   /* ★PC：2列（5行） */
   gap: 28px 12px;
   justify-content: center;
 }
@@ -888,7 +888,7 @@ footer address, #footer address {
 /* ★900px以下で5列2行に切り替え＋縦長カード比率 */
 @media (max-width: 900px) {
   .p-home-service__list {
-    grid-template-columns: repeat(5, 1fr);   /* スマホ：5列（2行） */
+    grid-template-columns: repeat(2, 1fr);   /* スマホ：5列（2行） */
     gap: 18px 6px;
   }
   .p-home-service__item {
