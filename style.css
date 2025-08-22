@@ -80,7 +80,7 @@ color:rgb(0,0,255);
 
 h2{
 /*background-color:rgb(84,195,241);*/
-font-size:1.5rem;
+font-size:32px;
 font-weight:normal;
 color:rgb(7,62,115);
 border-bottom:solid rgb(7,62,115);
@@ -101,7 +101,7 @@ h3{
 }
 
 .head{
-height:1em;
+height:24em;
 }
 
 .h3{
@@ -1402,13 +1402,6 @@ h1, .catch, .catch2,
 .p-featured-service__title {
   font-size: 36px;
   line-height: 1.25;
-}
-
-/* 見出し（全ページのH2） */
-h2 {                           /* 既存の 1.5rem を統一 */
-  font-size: 24px;
-  line-height: 1.4;
-  font-weight: normal;
 }
 
 /* セクションタイトル（Our Service / Flow / Fee / FAQ など） */
