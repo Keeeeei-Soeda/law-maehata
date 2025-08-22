@@ -1591,29 +1591,33 @@ h3, .h3, .h3naka,
   .p-footer-navwindow__container { padding: 12px; gap: 10px; }
 }
 
-/* === FAQ アコーディオン === */
-.faq-accordion { margin: 0; padding: 0; }
-.faq-accordion dt,
-.faq-accordion dd { margin: 0; padding: 0; }
+/* === FAQ（JSなしアコーディオン） === */
+.faq-accordion { margin: 0; padding: 0; display: grid; gap: 10px; }
 
+/* 既定の開閉マーカーを消す */
+.faq-q { list-style: none; }
+.faq-q::-webkit-details-marker { display: none; }
+
+.faq { border: none; }
+
+/* 質問（summary をボタン風に） */
 .faq-q {
-  all: unset;                 /* 既定のボタン装飾を消す */
-  display: block;
-  width: 100%;
   cursor: pointer;
   background: #fff;
   color: #16416a;
   border: 1px solid #dbe5f0;
   border-radius: 10px;
-  padding: 14px 44px 14px 14px;  /* 右にアイコンスペース */
+  padding: 14px 44px 14px 14px;  /* 右にアイコン余白 */
   box-shadow: 0 2px 10px rgba(22,65,106,0.06);
   transition: box-shadow .18s, transform .18s, background .18s;
+  position: relative;
 }
+.faq[open] .faq-q { background: #f7fbff; }
 .faq-q:hover { box-shadow: 0 6px 18px rgba(22,65,106,0.14); transform: translateY(-2px); }
 
+/* プラス／マイナスの簡易アイコン */
 .faq-icon {
-  position: relative;
-  float: right;
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
   width: 24px; height: 24px;
 }
 .faq-icon::before, .faq-icon::after {
@@ -1622,21 +1626,29 @@ h3, .h3, .h3naka,
   transform: translate(-50%, -50%);
 }
 .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); } /* ＋ */
-.faq-q[aria-expanded="true"] .faq-icon::after { opacity: 0; }        /* － に見せる */
+.faq[open] .faq-icon::after { opacity: 0; }                         /* －に見える */
 
+/* 回答：スムースに開く（max-heightは想定長に合わせて調整可） */
 .faq-a {
   background: #f6f9fc;
   border: 1px solid #e2ebf4;
   border-radius: 10px;
-  margin: 8px 0 14px 0;
+  margin-top: 8px;
+  padding: 0 14px;           /* 初期は閉じているのでパディング最小 */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: max-height .28s ease, opacity .22s ease, transform .22s ease, padding .2s;
+}
+.faq[open] .faq-a {
   padding: 14px;
-  color: #234;
+  max-height: 400px;         /* 文章が長い場合は数値を上げてください */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* モバイル調整 */
+/* モバイル微調整 */
 @media (max-width: 600px) {
   .faq-q { padding: 12px 40px 12px 12px; }
-  .faq-icon { width: 22px; height: 22px; }
 }
-
-
