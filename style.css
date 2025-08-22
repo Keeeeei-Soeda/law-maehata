@@ -1339,7 +1339,7 @@ footer address, #footer address {
 #verticalwrapper2 {
   border-left: none;           /* 外枠線を撤去 */
   border-right: none;          /* 外枠線を撤去 */
-  max-width: 1160px;           /* 1000 → 1160 に拡大 */
+  max-width: 1920px;           /* 1000 → 1160 に拡大 */
   padding: 0 24px;             /* 余白を内側で確保 */
   box-sizing: border-box;
 }
