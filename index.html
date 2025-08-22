@@ -277,23 +277,110 @@
         
       </div>
       <!-- フッター -->
-      <footer>
-        <div id="footer">
-          <nav class="footer-nav">
-            <a href="index.html">ホーム</a> |
-            <a href="mba.html">MBA経営相談</a> |
-            <a href="soudan.html">法律相談</a> |
-            <a href="gyoumu.html">業務内容</a> |
-            <a href="bengoshi.html">弁護士紹介</a> |
-            <a href="toiawase.html">アクセス</a>
-          </nav>
-          <address>
-            〒640-8281 和歌山県和歌山市湊通丁南一丁目3番地1 ル・シャトー真砂2-C<br>
-            TEL：<a href="tel:0734994115">073-499-4115</a>（平日9:00〜17:00・予約制）
-          </address>
-          <p><small>Copyright &copy; 2025 前畑法律事務所. All rights reserved.</small></p>
+     <footer id="l-footer" class="l-footer">
+  <!-- TOP：問い合わせCTA -->
+  <div class="l-footer__top p-footer-cta">
+    <div class="p-footer-cta__container">
+      <div class="p-footer-cta__header">
+        <div>
+          <h2 class="p-footer-cta__title">お問い合わせ</h2>
+          <p class="p-footer-cta__subtitle">Contact</p>
         </div>
-      </footer>
+      </div>
+      <div class="p-footer-cta__body">
+        <ul class="p-footer-cta__list">
+          <li class="p-footer-cta__item -tel">
+            <a href="tel:0734994115" class="p-footer-cta__btn -tel" aria-label="電話で問い合わせ">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.2 2.3 3.1 4.2 5.4 5.4l2-2c.3-.3.8-.4 1.1-.2 1.2.4 2.5.7 3.8.7.6 0 1 .4 1 .9V19c0 .6-.4 1-1 1C10.6 20 4 13.4 4 5c0-.6.4-1 1-1h3.3c.5 0 .9.4.9 1 0 1.3.3 2.6.7 3.8.1.4 0 .8-.3 1.1l-2 1.9z" fill="currentColor"/></svg>
+              <span class="text">073-499-4115</span>
+            </a>
+            <p class="p-footer-cta__item-note">（受付時間：平日9:00〜17:00・予約制）</p>
+          </li>
+          <li class="p-footer-cta__item -mail">
+            <a href="toiawase.html" class="c-btn-primary -xl" aria-label="相談フォームへ">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+              <span class="text">ご相談はこちら</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDDLE：事務所情報＋メニュー -->
+  <div class="l-footer__middle">
+    <div class="l-footer__container">
+      <div class="l-footer__info">
+        <div class="p-footer-info">
+          <div class="p-footer-info__logo">
+            <a href="./" aria-label="前畑法律事務所 ホーム">
+              <img src="image_folder/logo_maehata.png" alt="前畑法律事務所" />
+            </a>
+          </div>
+          <address class="p-footer-info__address">
+            〒640-8281 和歌山県和歌山市湊通丁南一丁目3番地1 ル・シャトー真砂2-C<br>
+            TEL. <a href="tel:0734994115">073-499-4115</a>
+          </address>
+        </div>
+      </div>
+
+      <nav class="l-footer__menu p-footer-menu" aria-label="フッターナビ">
+        <ul class="p-footer-menu__list">
+          <li class="p-footer-menu__item"><a href="./"><span>ホーム</span></a></li>
+          <li class="p-footer-menu__item"><a href="mba.html"><span>MBA経営相談</span></a></li>
+          <li class="p-footer-menu__item"><a href="soudan.html"><span>法律相談</span></a></li>
+          <li class="p-footer-menu__item"><a href="gyoumu.html"><span>取り扱い業務</span></a></li>
+          <li class="p-footer-menu__item"><a href="bengoshi.html"><span>弁護士紹介</span></a></li>
+          <li class="p-footer-menu__item"><a href="flow.html"><span>ご相談の流れ</span></a></li>
+          <li class="p-footer-menu__item"><a href="hiyou.html"><span>報酬について</span></a></li>
+          <li class="p-footer-menu__item"><a href="qa.html"><span>よくある質問</span></a></li>
+          <li class="p-footer-menu__item"><a href="news.html"><span>お知らせ</span></a></li>
+          <li class="p-footer-menu__item"><a href="toiawase.html"><span>アクセス</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- QUICK NAV：ナビゲーションウィンドウ -->
+  <div class="l-footer__navwindow p-footer-navwindow" aria-label="クイックナビ">
+    <div class="p-footer-navwindow__container">
+      <a class="p-footer-navwindow__card" href="gyoumu.html">
+        <span class="iconbox">⚖️</span><span class="label">取り扱い業務</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="flow.html">
+        <span class="iconbox">🧭</span><span class="label">ご相談の流れ</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="bengoshi.html">
+        <span class="iconbox">👤</span><span class="label">弁護士紹介</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="mba.html">
+        <span class="iconbox">🏛️</span><span class="label">MBA経営相談</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="hiyou.html">
+        <span class="iconbox">💴</span><span class="label">報酬について</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="qa.html">
+        <span class="iconbox">❓</span><span class="label">よくある質問</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="news.html">
+        <span class="iconbox">📰</span><span class="label">お知らせ</span>
+      </a>
+      <a class="p-footer-navwindow__card" href="toiawase.html">
+        <span class="iconbox">📍</span><span class="label">アクセス</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- BOTTOM：コピーライト -->
+  <div class="l-footer__bottom">
+    <div class="l-footer__container">
+      <p class="l-footer__copyright">
+        <small>Copyright &copy; 2025 前畑法律事務所. All rights reserved.</small>
+      </p>
+    </div>
+  </div>
+</footer>
+
     </div>
   </div>
 </div>
