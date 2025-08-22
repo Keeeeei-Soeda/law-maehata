@@ -25,8 +25,6 @@ text-align: justify;
 font-size:100%;
 }
 
-
-
 header{
 width:100%;
 height:100%;
@@ -1495,5 +1493,101 @@ h3, .h3, .h3naka,
 @media (max-width: 600px) {
   .site-header__inner { padding: 8px 12px; }
   .site-header__title { font-size: 20px; }  /* もう少し小さくしたい場合は18–20の間で調整 */
+}
+
+/* ========== Footer base ========== */
+.l-footer {
+  background: #f5f7fb;
+  color: #123;
+  border-top: 1px solid #dbe5f0;
+  margin-top: 36px;
+}
+.l-footer__container,
+.p-footer-cta__container,
+.p-footer-navwindow__container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+/* ========== CTA ========== */
+.p-footer-cta {
+  background: linear-gradient(125deg, #eaf2f7 60%, #d3e5f5 100%);
+  border-bottom: 1px solid #d7e4f1;
+}
+.p-footer-cta__container { padding: 24px 24px 18px; }
+.p-footer-cta__header { margin-bottom: 8px; }
+.p-footer-cta__title { color: #16416a; margin: 0; }
+.p-footer-cta__subtitle { color: #3877c5; margin: 0; }
+.p-footer-cta__list {
+  display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center; padding: 0; margin: 10px 0 0 0; list-style: none;
+}
+.p-footer-cta__item-note { margin: 6px 0 0 0; color: #345; }
+.p-footer-cta__btn.-tel {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #16416a; color: #fff; padding: 10px 16px; border-radius: 28px; text-decoration: none; box-shadow: 0 2px 10px rgba(22,65,106,.18);
+}
+.p-footer-cta__btn.-tel:hover { background: #0f2f53; }
+.c-btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #3877c5; color: #fff; padding: 10px 18px; border-radius: 28px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 10px rgba(56,119,197,.22);
+}
+.c-btn-primary:hover { background: #16416a; }
+.c-btn-primary .icon, .p-footer-cta__btn .icon { width: 20px; height: 20px; }
+
+/* ========== Middle：info + menu ========== */
+.l-footer__middle { background: #fff; }
+.l-footer__container { display: grid; grid-template-columns: 1.1fr 1.9fr; gap: 28px; padding: 22px 24px; }
+.p-footer-info__logo img { width: 180px; height: auto; display: block; }
+.p-footer-info__address { margin-top: 8px; color: #234; }
+.p-footer-menu__list {
+  display: grid; grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 10px 18px; list-style: none; margin: 0; padding: 0;
+}
+.p-footer-menu__item a {
+  text-decoration: none; color: #16416a; padding: 6px 0; display: inline-block;
+}
+.p-footer-menu__item a:hover { color: #3877c5; text-decoration: underline; }
+
+/* ========== Quick Nav（ナビゲーションウィンドウ） ========== */
+.p-footer-navwindow {
+  background: #f0f5fb;
+  border-top: 1px solid #e2ebf4;
+  border-bottom: 1px solid #e2ebf4;
+}
+.p-footer-navwindow__container {
+  padding: 18px 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.p-footer-navwindow__card {
+  display: flex; align-items: center; gap: 10px;
+  background: #fff; border-radius: 12px; padding: 12px 14px;
+  box-shadow: 0 2px 10px rgba(22,65,106,0.08);
+  text-decoration: none; color: #17416c;
+  transition: box-shadow .18s, transform .18s;
+}
+.p-footer-navwindow__card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(22,65,106,.16); }
+.p-footer-navwindow__card .iconbox {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 8px; background: #eaf2f7; box-shadow: inset 0 0 0 2px #cfe1f0;
+}
+.p-footer-navwindow__card .label { font-weight: 600; }
+
+/* ========== Bottom ========== */
+.l-footer__bottom { background: #fff; }
+.l-footer__copyright { text-align: center; color: #567; margin: 10px 0 18px; }
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .l-footer__container { grid-template-columns: 1fr; gap: 10px; }
+  .p-footer-info__logo img { width: 150px; }
+  .p-footer-menu__list { grid-template-columns: repeat(2, 1fr); }
+  .p-footer-navwindow__container { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .p-footer-cta__container { padding: 14px 12px; }
+  .l-footer__container { padding: 16px 12px; }
+  .p-footer-navwindow__container { padding: 12px; gap: 10px; }
 }
 
