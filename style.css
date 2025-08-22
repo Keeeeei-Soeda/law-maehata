@@ -1317,12 +1317,12 @@ footer address, #footer address {
 
 
 /* =========================================
-   Site-wide Typography Override（最後に配置）
+   Site-wide Typography Override (strong)
    PC: Title 36 / Body 15 / H2 18 / H3 16
    SP: Title 24 / Body 13 / H2 15 / H3 14
    ========================================= */
 
-/* --- 基本本文（段落・リスト・汎用テキスト） --- */
+/* 本文（説明文・一般テキスト） */
 body, p, li,
 .titledescription, .work, .news, .shoukai, .cashlessnotice,
 .p-section__subtitle,
@@ -1335,23 +1335,25 @@ body, p, li,
   line-height: 1.6;
 }
 
-/* --- タイトル（ヒーロー/メイントップ） --- */
+/* タイトル（ヒーロー/メイントップ相当） */
 h1, .catch, .catch2,
 .p-featured-service__title {
   font-size: 36px;
   line-height: 1.25;
 }
 
-/* --- H2（全ページのセクション見出し） --- */
-h2, .p-section__title {
-  font-size: 18px;
+/* H2（.p-featured-service__title を除外） */
+h2:not(.p-featured-service__title),
+.p-section__title,
+.p-section__header .p-section__title {
+  font-size: 18px !important;
   line-height: 1.4;
 }
 
-/* --- H3（小見出し／カード見出し等） --- */
+/* H3・カード見出し */
 h3, .h3, .h3naka,
 .p-home-service__item-title {
-  font-size: 16px;
+  font-size: 16px !important;
   line-height: 1.4;
 }
 
@@ -1376,15 +1378,18 @@ h3, .h3, .h3naka,
     line-height: 1.28;
   }
 
-  /* H2 */
-  h2, .p-section__title {
-    font-size: 15px;
+  /* H2（タイトル除外） */
+  h2:not(.p-featured-service__title),
+  .p-section__title,
+  .p-section__header .p-section__title {
+    font-size: 15px !important;
   }
 
   /* H3 */
   h3, .h3, .h3naka,
   .p-home-service__item-title {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 }
+
 
