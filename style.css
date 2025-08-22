@@ -834,76 +834,86 @@ footer address, #footer address {
 
 .p-home-service__list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);   /* ★PC：2列（5行） */
-  gap: 28px 12px;
+  /* PCは5列。最小幅を160pxにして潰れすぎを防止 */
+  grid-template-columns: repeat(5, minmax(160px, 1fr));
+  gap: 20px 12px;
   justify-content: center;
 }
+
 .p-home-service__item {
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 3px 14px rgba(22,65,106,0.09);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 0;
-  max-width: 100%;
-  width: 100%;
-  aspect-ratio: 2.2 / 1;   /* PCはやや横長に */
+  /* 中身が収まる比率＋最低高さでオーバーフロー防止 */
+  aspect-ratio: 1.4 / 1;   /* 2.2/1 → 1.4/1 に変更（高さを確保） */
+  min-height: 140px;
+  padding: 12px 10px;
   transition: box-shadow 0.2s, transform 0.2s;
   margin: 0 auto;
 }
+
 .p-home-service__item:hover {
   box-shadow: 0 6px 22px rgba(22,65,106,0.18);
   transform: translateY(-4px) scale(1.04);
 }
+
+/* 見出しはH3相当（サイズは全体ルールで16/14px） */
 .p-home-service__item-title {
-  font-size: 1.08rem;
   font-weight: bold;
   color: #16416a;
   text-align: center;
-  margin-bottom: 14px;
+  margin: 0 0 10px 0;
+  line-height: 1.35;
+  /* 2行になっても高さが揃いやすいよう最小高を確保 */
+  min-height: 1.35em; /* タイトルが1行でもレイアウトが安定 */
 }
+
 .p-home-service__item img {
-  width: 64px;
-  height: 64px;
+  width: 54px;   /* 64→54で収まり改善 */
+  height: 54px;
   object-fit: contain;
   display: block;
   margin: 0 auto;
   border-radius: 8px;
   background: #eaf2f7;
-  padding: 10px;
+  padding: 8px;
 }
+
+/* aをカード全面クリックにしつつ中身レイアウトを安定させる */
 .p-home-service__item a {
   text-decoration: none;
   color: inherit;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100%;
+  height: 100%; /* カードの中で中央寄せ */
 }
-
-
-/* 発注までの流れについて */
-
 /* ★900px以下で5列2行に切り替え＋縦長カード比率 */
 @media (max-width: 900px) {
   .p-home-service__list {
-    grid-template-columns: repeat(2, 1fr);   /* スマホ：5列（2行） */
-    gap: 18px 6px;
+    grid-template-columns: repeat(2, 1fr); /* スマホ2列 */
+    gap: 16px 10px;
   }
   .p-home-service__item {
-    aspect-ratio: 0.75 / 1;   /* スマホはやや縦長に */
+    aspect-ratio: 0.9 / 1;   /* 縦に余裕を持たせる */
+    min-height: 160px;       /* 文字が折り返してもOK */
+    padding: 10px 8px;
   }
-  .p-section__title { font-size: 1.2rem;}
-  .p-section__subtitle { font-size: 1rem;}
+  .p-home-service__item img {
+    width: 44px; height: 44px; padding: 6px;
+  }
+  .p-home-service__item-title {
+    margin-bottom: 8px;
+    min-height: 1.35em;
+  }
 }
 
-/* 600px以下でさらに小さく */
-@media (max-width: 600px) {
-  .p-home-service { padding: 18px 0 6px 0;}
-  .p-home-service__item-title { font-size: 0.92rem; }
-  .p-home-service__item img { width: 38px; height: 38px; padding: 5px;}
-}
+/* 発注までの流れについて */
 
 .p-home-flow__bg {
   background: linear-gradient(135deg, #eaf2f7 60%, #d0e4f3 100%);
