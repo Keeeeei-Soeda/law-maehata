@@ -1452,3 +1452,48 @@ h3, .h3, .h3naka,
     font-size: 14px;
   }
 }
+
+
+/* ===== Header ===== */
+.site-header {
+  background: #f9f7f4;              /* お好みで: 無色にしたい場合は transparent */
+  border-bottom: 3px solid #2f2a76;  /* 下線（スクショのイメージ寄せ） */
+}
+.site-header__inner {
+  max-width: 1160px;                 /* 全体拡大に合わせた横幅 */
+  padding: 10px 24px 8px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ロゴ画像：画面幅に応じて高さだけ可変（縦横比維持） */
+.site-header__logo {
+  height: clamp(38px, 6.5vw, 64px);  /* SPで小さく、PCで大きく */
+  width: auto;
+  display: block;
+}
+
+/* サイト名：読みやすく、ロゴに追従してスケール */
+.site-header__title {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  font-size: clamp(20px, 2.2vw, 28px);  /* SP≒20px／PC≒28px */
+  color: #121212;
+}
+
+/* スマホ微調整 */
+@media (max-width: 600px) {
+  .site-header__inner { padding: 8px 12px; }
+  .site-header__title { font-size: 20px; }  /* もう少し小さくしたい場合は18–20の間で調整 */
+}
+
